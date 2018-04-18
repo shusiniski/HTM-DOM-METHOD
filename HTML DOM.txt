@@ -1,0 +1,231 @@
+HTML DOM querySelector () metodu
+
+ querySelector () --Elementin mü?yy?n bir CSS seçicisin? uygun olan ilk chaild elementini qaytarir.
+
+Misal:
+
+<html><body>
+<div class=test><span class=inner>Hello</span></div>
+<script>
+
+// "test" adi il? bir sinif tapir v? sinif "daxili" bir span.
+var result = document.querySelector(".test span.inner");
+// S?n?din basligini t?yin edin.
+document.title = result.textContent;
+// S?n?din basligini daxili spanin textcontentin? qoyduq. Bu "Salam" m?tni.
+</script></body></html>
+
+----------------------------------------------------------------------
+
+          HTML DOM querySelectorAll() Method
+
+element.querySelectorAll()--Bir elementin mü?yy?n bir CSS selektoruna uygun olan bütün chaild elementl?rini qaytarir.
+Elem.querySelectorAll (css) çagirisi, veril?n CSS selektoruna uygun olan bütün elementl?ri qaytarir. ?n çox istifad? edil?n v? güclü bir üsuldur.
+
+Burada son övladi olan bütün <li> elementl?ri axtaririq:
+
+
+Misal: 
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+</head><body>
+
+<ul>
+  <li>The</li>
+  <li>test</li>
+</ul>
+<ul>
+  <li>has</li>
+  <li>passed</li>
+</ul>
+<script>
+  let elements = document.querySelectorAll('ul > li:last-child');
+
+  for (let elem of elements) {
+    alert(elem.innerHTML); // "test", "passed"
+  }
+</script>
+
+</body>
+</html>
+-------------------------------------------------------------------------
+                 HTML DOM removeAttribute() Method
+
+element.removeAttribute()--Bir elementd?n mü?yy?n bir xüsusiyy?t çixarir.
+
+Misal:
+
+<div id =”div1” align=”left” width=”200px”>
+document.getelementById(“div1”).removeAttribute(“align”);
+//now: <div id=”div1” width=”200px”>
+-----------------------------------------------------------------------
+
+HTML DOM removeAttributeNode() Method
+
+element.removeAttributeNode()--mü?yy?n elementd?n cari elementd?n çixarir.RemoveAttributeNode, ad adlandirilmis v? qeyri-adlandirilmis olmayan atributlari aradan qaldira bil?r.
+
+Misal:
+<div id="top" align="center" />
+var d = document.getElementById("top"); 
+var d_align = d.getAttributeNode("align"); 
+d.removeAttributeNode(d_align); 
+// align is now removed: <div id="top" />
+-------------------------------------------------------------------------
+
+HTML DOM removeChild() Method
+
+element.removechild()--Bir elementd?n bir child node çixarir.
+
+Misal:
+
+<html>
+<head>
+    <title>removeChild() Example</title>
+    <script type="text/javascript">
+        function removeMessage() {
+            var b = document.body.getElementsByTagName("p")[0];
+            document.body.removeChild(b);
+        }
+    </script>
+</head>
+<body onload="removeMessage()">
+    <P>A</p>
+    <P>B</p>
+    <P>C</p>
+</body>
+</html>
+--------------------------------------------
+HTML DOM removeEventListener() Method
+element.removeEventListener()-AddEventListener () metodu il? ?laq?l?ndirilmis bir hadis? isleyicisini qaldirir.AddEventListener () metodu mü?yy?n element? bir hadis? isleyicisi ?lav? edir.
+
+Misal:
+<!DOCTYPE html>
+<html>
+<body>
+<button id="myBtn">test</button><p id="demo"></p>
+<script>
+document.getElementById("myBtn").addEventListener("click", function(){
+    document.getElementById("demo").innerHTML = "Hello World";
+});
+</script>
+
+</body>
+</html>
+Ve ya 
+<!DOCTYPE html>
+<html>
+<body>
+<button id="myBtn">Try it</button>
+<script>
+var x = document.getElementById("myBtn");
+x.addEventListener("click", myFunction);
+x.addEventListener("click", someOtherFunction);
+
+function myFunction() {
+    console.log ("Hello World!")
+}
+
+function someOtherFunction() {
+    console.log ("This function was also executed!")
+}
+</script>
+
+</body>
+</html>
+---------------------------------------------------------------------------------------------------------
+                      HTML DOM replaceChild() Method
+element.replaceChild()--Bir elementd? bir child node d?yisdirir.ReplaceChild () metodu bir child node yeni bir node il? ?v?z olunur.
+
+Misal:
+<!DOCTYPE html>
+<html>
+<body>
+<ul id="myList"><li>Anar</li><li>Sahlar</li><li>Tuncay</li></ul>
+<button onclick="myFunction()">test</button>
+<script>
+function myFunction()
+{
+    var textnode = document.createTextNode("Samir");
+    var item = document.getElementById("myList").childNodes[0];
+    item.replaceChild(textnode,item.childNodes[0]);
+}
+</script>
+</body>
+</html>
+------------------------------------------------------------------------------
+                    HTML DOM scrollHeight Property
+element.scrollHeight-- bir elementin bütün yüks?kliyini qaytarir.
+Misal:
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#myDIV {
+    margin-top: 10px;
+    height: 250px;
+    width: 250px;
+    overflow: auto;
+}
+
+#content {
+    height: 800px;
+    width: 2000px;
+    padding: 10px;
+    background-color: coral;
+}
+</style>
+</head>
+<body>
+
+<p>Click the button to get the entire height (vertically) and width (horizontally) of the div element with id="content".</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<div id="myDIV">
+  <div id="content">Some content..</div>
+</div>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+    var elmnt = document.getElementById("content");
+    var y = elmnt.scrollHeight;
+    var x = elmnt.scrollWidth;
+    document.getElementById ("demo").innerHTML = "Height: " + y + "px<br>Width: " + x + "px";
+}
+</script>
+
+</body>
+</html>
+
+---------------------------------------------------------------------------------------------
+
+                         HTML DOM scrollIntoView Method
+
+element.scrollIntoView() --Göst?ril?n elementi brauzer p?nc?r?sinin görün?n sah?sin? kaydirir.ScrollIntoView () metodu mü?yy?n elementi brauzer p?nc?r?sinin görün?n sah?sin? çevirir.
+
+Misal:
+
+<head>
+    <script type="text/javascript">
+        function ScrollRed (alignToTop) {
+            var redText = document.getElementById ("redText");
+            redText.scrollIntoView (alignToTop);
+        }
+    </script>
+</head>
+<body>
+    <div style="width:300px; height:200px; overflow:auto; background-color:#e0d0b0;">
+        <div style="height:200px;"></div>
+        <span id="redText" style="color:red">Red text for scroll test.</span>
+        <div style="height:200px;"></div>
+    </div>
+    <br /><br />
+    <button onclick="ScrollRed (true);">Scroll the red text into the top of visible area!</button>
+    <br />
+    <button onclick="ScrollRed (false);">Scroll the red text into the bottom of visible area!</button>
+</body>
